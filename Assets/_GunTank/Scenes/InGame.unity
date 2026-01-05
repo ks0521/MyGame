@@ -2959,15 +2959,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translator: {fileID: 0}
-  LaunchEffect: {fileID: 720345382}
+  uiManager: {fileID: 1655181727}
+  HUD: {fileID: 1536421174}
   ClearUI: {fileID: 378098253}
   DefeatUI: {fileID: 95216018}
-  Spawner: {fileID: 1234655957}
-  Pause: {fileID: 586047736}
-  MainCam: {fileID: 2056797286}
-  Rotation: {fileID: 0}
-  CurrentCursor: 0
-  HUD: {fileID: 1536421174}
 --- !u!4 &488519490
 Transform:
   m_ObjectHideFlags: 0
@@ -4005,7 +4000,6 @@ MonoBehaviour:
   LfirePoint: {fileID: 820560232}
   RfirePoint: {fileID: 98751221}
   FireAngle: {fileID: 0}
-  CannonPrepeb: {fileID: 7062044772206564270, guid: 77aa0f964f16c794dbb2a474f2bfc1d8, type: 3}
   CannonObj: {fileID: 0}
   isLeft: 0
 --- !u!114 &691576358
@@ -4816,13 +4810,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782885080}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 175.99916, y: 91.5, z: 71.68587}
   m_LocalScale: {x: 75, y: 184.74133, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1606569157}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 971585100}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &790395421
 GameObject:
@@ -5716,7 +5710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874111277}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5725,7 +5719,7 @@ Transform:
   - {fileID: 2113358845}
   - {fileID: 18499844}
   - {fileID: 807453874}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 971585100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &875244348
 GameObject:
@@ -6002,7 +5996,7 @@ Transform:
   m_Children:
   - {fileID: 875244349}
   - {fileID: 720345386}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 971585100}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!1 &890942457
 GameObject:
@@ -6293,6 +6287,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954403037}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &971585099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 971585100}
+  m_Layer: 0
+  m_Name: Environment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &971585100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971585099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 874111278}
+  - {fileID: 1829882383}
+  - {fileID: 782885084}
+  - {fileID: 889557957}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &997607208
 GameObject:
   m_ObjectHideFlags: 0
@@ -7758,7 +7787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1273662729}
-  lifeManager: {fileID: 0}
 --- !u!1 &1275634383
 GameObject:
   m_ObjectHideFlags: 0
@@ -10073,6 +10101,9 @@ MonoBehaviour:
   hud: {fileID: 1536421174}
   pause: {fileID: 586047736}
   controller: {fileID: 691576353}
+  rotation: {fileID: 2056797290}
+  crosshair: {fileID: 275173044}
+  isPause: 0
 --- !u!1 &1688056631
 GameObject:
   m_ObjectHideFlags: 0
@@ -10414,6 +10445,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812755395}
   m_CullTransparentMesh: 1
+--- !u!1 &1823471597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1823471599}
+  - component: {fileID: 1823471598}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1823471598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823471597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d110180e0fde54da5030e54f8f55f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+  - obj: {fileID: 5137615284212138953, guid: e2a7b5c928c23d54a8231ad23819806a, type: 3}
+    count: 40
+    name: TankBullet
+  - obj: {fileID: 7062044772206564270, guid: 77aa0f964f16c794dbb2a474f2bfc1d8, type: 3}
+    count: 5
+    name: Cannon
+  - obj: {fileID: 5787700744727540826, guid: 4f96e65393a649d4f8fb02a7fccb69a9, type: 3}
+    count: 15
+    name: ExplosionOverlap
+--- !u!4 &1823471599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823471597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1829882379
 GameObject:
   m_ObjectHideFlags: 0
@@ -10513,12 +10598,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829882379}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 16, y: 0.01, z: 16}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 971585100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916277615
 GameObject:
@@ -12246,9 +12331,7 @@ SceneRoots:
   - {fileID: 1234655959}
   - {fileID: 1655181726}
   - {fileID: 691576352}
-  - {fileID: 874111278}
   - {fileID: 1803187105}
-  - {fileID: 1829882383}
-  - {fileID: 782885084}
-  - {fileID: 889557957}
   - {fileID: 488519490}
+  - {fileID: 971585100}
+  - {fileID: 1823471599}

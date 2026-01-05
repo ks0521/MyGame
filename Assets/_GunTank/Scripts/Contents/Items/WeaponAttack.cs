@@ -44,7 +44,6 @@ abstract public class WeaponAttack : MonoBehaviour
     }
     abstract protected void OnInit();
     abstract public void Attack();
-    // Update is called once per frame
 }
 
 public abstract class HitScanAttack : WeaponAttack

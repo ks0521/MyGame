@@ -8,11 +8,13 @@ public class Click : MonoBehaviour
     public GameObject Manual;
     public void OnStart()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         GameManager.instance.isChallenge = false;
         GameManager.instance.LoadScene((int)Scene.GamePlay);
     }
     public void OnChallenge()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         GameManager.instance.isChallenge = true;
         GameManager.instance.LoadScene((int)Scene.GamePlay);
     }

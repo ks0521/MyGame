@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     public Canvas hud;
     public GameObject pause;
     public TankController controller;
+    public CameraRotation rotation;
+    public Image crosshair;
     public bool isPause; //나중에 ui추가되면 enum으로 변경
 
     public void TogglePause()
@@ -26,6 +28,8 @@ public class UIManager : MonoBehaviour
     public void EnterUI()
     {
         controller.enabled = false;
+        rotation.enabled = false;
+        crosshair.enabled = false;
         //커서 잠금해제
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -35,6 +39,8 @@ public class UIManager : MonoBehaviour
     public void ExitUI()
     {
         controller.enabled = true;
+        rotation.enabled = true;
+        crosshair.enabled = true;
         //커서 잠금해제
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

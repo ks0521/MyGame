@@ -15,13 +15,17 @@ public class ExplosionOverlap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = 50;
         radius = 15; //가장 큰 스케일 * 0.5
-        time = Time.time;
         DamagedTarget = new List<IDamagedable>();
     }
-
-
+    public void Init(int damage)
+    {
+        this.damage = damage;
+    }
+    private void OnEnable()
+    {
+        time = Time.time;
+    }
     private void OnTriggerEnter(Collider other)
     {
         Collider[] col = Physics.OverlapSphere(transform.position, radius, 1 << (int)Layer.MonsterBody);
@@ -41,7 +45,11 @@ public class ExplosionOverlap : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.time > time + 1f) { Destroy(gameObject); }
+        if (Time.time > time + 1f) 
+        {
+            PoolManager.poolDic["ExplosionOverlap"].ReturnPool(gameObject);
+            //Destroy(gameObject);
+        }
     }
     private void OnDrawGizmos()
     {
@@ -50,6 +58,6 @@ public class ExplosionOverlap : MonoBehaviour
     }
     private void OnDisable()
     {
-        DamagedTarget.Clear();
+        DamagedTarget?.Clear();
     }
 }

@@ -7,28 +7,21 @@ public class PauseMenu : MonoBehaviour
     public GameObject MainCam;
     public GameObject Manual;
     public CameraRotation Rotation;
-    private void FixedUpdate()
-    {
-        Cursor.lockState = CursorLockMode.None;
-    }
     private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.None;
-    }
-    private void OnDisable()
-    {
-        Cursor.lockState = PlayManager.instance.CurrentCursor;
     }
     public void OnClickReturnGame()
     {
         Time.timeScale = 1;
         Rotation.enabled = true;
         gameObject.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void OnClickReturnMenu()
     {
         Time.timeScale = 1;
-        PlayManager.instance.CurrentCursor = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.None;
         GameManager.instance.LoadScene((int)Scene.Main);
     }
     public void OnClickQuit()

@@ -9,12 +9,9 @@ public class PlayManager : MonoBehaviour
     public SceneTranslator translator;
     public UIManager uiManager;
     public static PlayManager instance;
+    public Canvas HUD;
     public GameObject ClearUI;
     public GameObject DefeatUI;
-
-    public CursorLockMode CurrentCursor;
-    [SerializeField] public Canvas HUD;
-    // Start is called before the first frame update
     private void Awake()
     {
         if(instance == null)

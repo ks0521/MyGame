@@ -8,11 +8,9 @@ public class CannonAttack : ProjectileAttack
     public GameObject LfirePoint;
     public GameObject RfirePoint;
     public GameObject FireAngle;
-    public GameObject CannonPrepeb;
     public GameObject CannonObj;
     CannonMove CannonInfo;
     public bool isLeft;
-    // Start is called before the first frame update
     protected override void ProjectileInit()
     {
         damage = 50;
@@ -21,7 +19,8 @@ public class CannonAttack : ProjectileAttack
     }
     public void MakeCanon(GameObject firePoint)
     {
-        CannonObj = Instantiate(CannonPrepeb, firePoint.transform.position, firePoint.transform.rotation);
+        //CannonObj = Instantiate(CannonPrepeb, firePoint.transform.position, firePoint.transform.rotation);
+        CannonObj = PoolManager.poolDic["Cannon"].UsePool(firePoint.transform.position, firePoint.transform.rotation);
         CannonInfo = CannonObj.GetComponent<CannonMove>();
         CannonInfo.Init(damage, speed);
     }

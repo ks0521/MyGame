@@ -8,12 +8,11 @@ public class MonsterHpBar : MonoBehaviour
     [SerializeField]
     public Slider slider;
     public Monster MonsterInfo;
-    void Start()
+    void Awake()
     {
         slider = GetComponent<Slider>();
         slider.minValue = 0;
         MonsterInfo = GetComponentInParent<Monster>();
-        MonsterInfo.onChangeHp += ChangeSlider;
     }
 
     void ChangeSlider(int hp, int maxhp)
@@ -22,7 +21,10 @@ public class MonsterHpBar : MonoBehaviour
         slider.maxValue = maxhp;
         slider.value = hp;
     }
-
+    private void OnEnable()
+    {
+        MonsterInfo.onChangeHp += ChangeSlider;
+    }
     private void OnDisable()
     {
         MonsterInfo.onChangeHp -= ChangeSlider;

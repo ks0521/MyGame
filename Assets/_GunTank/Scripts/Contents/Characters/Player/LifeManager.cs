@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -40,19 +41,18 @@ public class LifeManager : MonoBehaviour, IDamagedable
     public TextMeshProUGUI LevelText;
     public MonsterSpawner Spawner;
 
-    public event Action<int> onLevelUp;
-    public event Action<int> onExpChanged;
-    public event Action<int, int> onHpChanged;
-    void Awake()
+    public static event Action<int> OnLevelUp;
+    public static event Action<int> OnExpChanged;
+    public static event Action<int, int> OnHpChanged;
+    void Start()
     {
         Hp = 100;
         MaxHp = 100;
         Level = 0;
         NeedExp = 100;
-        HpText.SetHp(Hp, MaxHp);
-        HpBar.SetHp(Hp, MaxHp);
+        OnHpChanged?.Invoke(Hp, MaxHp);
     }
-
+    
     IEnumerator GameOver(int time)
     {
         yield return new WaitForSeconds(time);
@@ -72,9 +72,7 @@ public class LifeManager : MonoBehaviour, IDamagedable
         Hp-=damage;
         StartCoroutine(Invincible(1.5f));
         
-        onHpChanged.Invoke(Hp, MaxHp);
-        HpText.Renew(Hp,MaxHp);
-        HpBar.Renew(Hp,MaxHp);
+        OnHpChanged?.Invoke(Hp, MaxHp);
     }
     public void GetExp(int increse)
     {
@@ -85,12 +83,12 @@ public class LifeManager : MonoBehaviour, IDamagedable
             Exp -= NeedExp;
             LevelUp();
         }
-        onExpChanged.Invoke(Exp);
+        OnExpChanged?.Invoke(Exp);
     }
     public void LevelUp()
     {
         Level++;
-        onLevelUp.Invoke(Level);
+        OnLevelUp?.Invoke(Level);
         NeedExp += 5;
         LevelText.text = "Level : " + Level;
         if (Hp + 20 >= MaxHp)
@@ -101,8 +99,6 @@ public class LifeManager : MonoBehaviour, IDamagedable
         {
             Hp += 20;
         }
-        onHpChanged(Hp, MaxHp);
-        HpText.Renew(Hp, MaxHp);
-        HpBar.Renew(Hp, MaxHp);
+        OnHpChanged?.Invoke(Hp, MaxHp);
     }
 }

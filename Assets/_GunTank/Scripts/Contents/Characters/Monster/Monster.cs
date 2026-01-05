@@ -53,8 +53,6 @@ abstract public class Monster : MonoBehaviour, IDamagedable
         Detector = GetComponentInChildren<DetectiveComponent>();
         Lifemanager = FindObjectOfType<LifeManager>();
     }
-    
-
     abstract public void Damaged(int damage);
     public virtual void Damaged(int damage, GameObject obj)
     {

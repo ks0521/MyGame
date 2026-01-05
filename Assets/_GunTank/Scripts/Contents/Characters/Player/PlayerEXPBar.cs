@@ -8,12 +8,19 @@ public class PlayerEXPBar : MonoBehaviour
 {
     [SerializeField]
     public Slider slider;
-    public LifeManager lifeManager;
     private void Start()
     {
-        lifeManager.onExpChanged += ExpChange; 
         slider.maxValue = 100;
         slider.value = 0;
+    }
+    private void OnEnable()
+    {
+        LifeManager.OnExpChanged += ExpChange;
+    }
+    private void OnDisable()
+    {
+        LifeManager.OnExpChanged -= ExpChange;
+
     }
     public void ExpChange(int change)
     {

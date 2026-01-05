@@ -35,7 +35,7 @@ public class MonsterSpawner : MonoBehaviour
         canSpawn = true;
         spawnDelay = 4;
         Spawner = new List<Monster>();
-        LifeManager.onLevelUp += PlayerLavelUp;
+        LifeManager.OnLevelUp += PlayerLavelUp;
         sizeX = Plane.localScale.x * 10;
         sizeZ = Plane.localScale.z * 10;
         StartCoroutine(SpawnRoutine());
