@@ -56,7 +56,7 @@ public class LifeManager : MonoBehaviour, IDamagedable
     IEnumerator GameOver(int time)
     {
         yield return new WaitForSeconds(time);
-        GameManagers.instance.LoadScene((int)Scene.Main);
+        GameManager.instance.LoadScene((int)Scene.Main);
     }
 
     IEnumerator Invincible(float time)

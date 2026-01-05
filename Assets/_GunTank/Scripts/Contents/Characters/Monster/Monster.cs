@@ -78,7 +78,7 @@ abstract public class Monster : MonoBehaviour, IDamagedable
     private void OnDestroy()
     {
         onDieMonster?.Invoke();
-        GameManagers.instance.Score+=10;
+        GameManager.instance.Score+=10;
         ScoreManager.instance.ChangeScore();
         if (this.isDead) Debug.Log($"{gameObject.name} 사망");
         Lifemanager.GetExp(60);

@@ -8,13 +8,13 @@ public class Click : MonoBehaviour
     public GameObject Manual;
     public void OnStart()
     {
-        GameManagers.instance.isChallenge = false;
-        GameManagers.instance.LoadScene((int)Scene.GamePlay);
+        GameManager.instance.isChallenge = false;
+        GameManager.instance.LoadScene((int)Scene.GamePlay);
     }
     public void OnChallenge()
     {
-        GameManagers.instance.isChallenge = true;
-        GameManagers.instance.LoadScene((int)Scene.GamePlay);
+        GameManager.instance.isChallenge = true;
+        GameManager.instance.LoadScene((int)Scene.GamePlay);
     }
     public void OpenManual()
     {

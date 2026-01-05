@@ -14,7 +14,7 @@ public class MoveScreen : MonoBehaviour
     IEnumerator SceneChange()
     {
         yield return new WaitForSeconds(14);
-        GameManagers.instance.LoadScene(0);
+        GameManager.instance.LoadScene(0);
     }
     private void FixedUpdate()
     {

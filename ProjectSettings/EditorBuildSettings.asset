@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GunTank/Main.unity
+    path: Assets/_GunTank/Scenes/Main.unity
     guid: 5128b4bb56058074883104966f513d77
   - enabled: 1
-    path: Assets/GunTank/GunTank.unity
-    guid: 69cf8bf6cb0eb2542afe9b9cb212d395
+    path: Assets/_GunTank/Scenes/InGame.unity
+    guid: 1bef44b932b17e64e9e46fa93a5ad2d6
   - enabled: 1
-    path: Assets/GunTank/Ending.unity
+    path: Assets/_GunTank/Scenes/Ending.unity
     guid: 9671d3ac0a0ad984ba5621c085fd67c3
   m_configObjects: {}

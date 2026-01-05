@@ -22,7 +22,7 @@ public class PlayManagerChallenge : MonoBehaviour
     IEnumerator SceneLoad(int Scene)
     {
         yield return new WaitForSeconds(5);
-        GameManagers.instance.LoadScene(Scene);
+        GameManager.instance.LoadScene(Scene);
     }
 
     public void GameOver()
@@ -42,7 +42,7 @@ public class PlayManagerChallenge : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(GameManagers.instance.Score >= 50)
+        if(GameManager.instance.Score >= 50)
         {
             LaunchEffect.SetActive(true);
         }

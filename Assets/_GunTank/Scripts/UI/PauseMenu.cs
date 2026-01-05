@@ -29,7 +29,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         PlayManager.instance.CurrentCursor = CursorLockMode.None;
-        GameManagers.instance.LoadScene((int)Scene.Main);
+        GameManager.instance.LoadScene((int)Scene.Main);
     }
     public void OnClickQuit()
     {

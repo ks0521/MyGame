@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
-public class GameManagers : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    public static GameManagers instance;
+    public static GameManager instance;
     public int Score { get;  set; }
     public bool isChallenge;
     // Start is called before the first frame update
@@ -32,7 +30,4 @@ public class GameManagers : MonoBehaviour
             SceneManager.LoadScene(index);
         }
     }
-    
-
-
 }
