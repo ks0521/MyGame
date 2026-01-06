@@ -27,9 +27,9 @@ public class CannonMove: MonoBehaviour
     {
         Instantiate(Explosion, transform.position, Quaternion.identity);
         //폭발구름 생성
-        Explosion=PoolManager.poolDic["ExplosionOverlap"].UsePool(transform.position, Quaternion.identity);
+        Explosion=PoolManager.poolDic[PoolType.FX_Explosion].UsePool(transform.position, Quaternion.identity);
         Explosion.GetComponent<ExplosionOverlap>().Init(Damage);
-        PoolManager.poolDic["Cannon"].ReturnPool(gameObject);
+        PoolManager.poolDic[PoolType.Weapon_Cannon].ReturnPool(gameObject);
         //Destroy(gameObject);
     }
 }

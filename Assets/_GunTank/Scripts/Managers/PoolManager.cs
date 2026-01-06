@@ -7,26 +7,27 @@ public struct PoolData
 {
     public GameObject obj;
     public int count;
-    public string name;
+    public PoolType type;
 }
 public class ObjectPool
 {
     public PoolData data;
     public Queue<GameObject> pool;
 
-    public ObjectPool(PoolData _data)
+    public ObjectPool(PoolData _data,GameObject obj)
     {
         pool = new Queue<GameObject>();
         data = _data;
-        Init();
+        Init(obj);
     }
-    public void Init()
+    public void Init(GameObject obj)
     {
         for(int i = 0; i < data.count; i++)
         {
             GameObject newObj = GameObject.Instantiate(data.obj);
             pool.Enqueue(newObj);
             newObj.SetActive(false);
+            newObj.transform.SetParent(obj.transform);
         }
     }
     public GameObject UsePool(Vector3 pos, Quaternion rot)
@@ -51,10 +52,10 @@ public class ObjectPool
 public class PoolManager : MonoBehaviour
 {
     public List<PoolData> data;
-    public static Dictionary<string, ObjectPool> poolDic;
+    public static Dictionary<PoolType, ObjectPool> poolDic;
     private void Awake()
     {
-        poolDic = new Dictionary<string, ObjectPool>();
+        poolDic = new Dictionary<PoolType, ObjectPool>();
         for(int i = 0; i < data.Count; i++)
         {
             AddDictionary(data[i]);
@@ -62,6 +63,6 @@ public class PoolManager : MonoBehaviour
     }
     public void AddDictionary(PoolData data)
     {
-        poolDic.Add(data.name, new ObjectPool(data));
+        poolDic.Add(data.type, new ObjectPool(data,gameObject));
     }
 }

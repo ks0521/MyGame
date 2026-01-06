@@ -28,7 +28,7 @@ public class BulletAttack : ProjectileAttack
     }
     public void MakeBullet(GameObject firePoint)
     {
-        BulletObj = PoolManager.poolDic["TankBullet"].UsePool(firePoint.transform.position, firePoint.transform.rotation);
+        BulletObj = PoolManager.poolDic[PoolType.Weapon_MG].UsePool(firePoint.transform.position, firePoint.transform.rotation);
         BulletInfo = BulletObj.GetComponent<BulletMove>();
         BulletInfo.Init(damage, speed);
     }

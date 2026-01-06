@@ -20,7 +20,7 @@ public class CannonAttack : ProjectileAttack
     public void MakeCanon(GameObject firePoint)
     {
         //CannonObj = Instantiate(CannonPrepeb, firePoint.transform.position, firePoint.transform.rotation);
-        CannonObj = PoolManager.poolDic["Cannon"].UsePool(firePoint.transform.position, firePoint.transform.rotation);
+        CannonObj = PoolManager.poolDic[PoolType.Weapon_Cannon].UsePool(firePoint.transform.position, firePoint.transform.rotation);
         CannonInfo = CannonObj.GetComponent<CannonMove>();
         CannonInfo.Init(damage, speed);
     }

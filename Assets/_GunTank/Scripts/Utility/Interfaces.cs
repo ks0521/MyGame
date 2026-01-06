@@ -24,3 +24,13 @@ public enum Layer
 }
 
 public enum Scene { Main, GamePlay, Ending, length}
+
+public enum PoolType
+{
+    Weapon_MG,
+    Weapon_Cannon,
+    FX_Explosion,
+
+    Monster_Dragon,
+    Monster_Slime
+}

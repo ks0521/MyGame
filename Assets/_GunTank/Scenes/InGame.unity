@@ -10456,7 +10456,7 @@ GameObject:
   - component: {fileID: 1823471599}
   - component: {fileID: 1823471598}
   m_Layer: 0
-  m_Name: PoolManager
+  m_Name: ObjectPoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10477,13 +10477,13 @@ MonoBehaviour:
   data:
   - obj: {fileID: 5137615284212138953, guid: e2a7b5c928c23d54a8231ad23819806a, type: 3}
     count: 40
-    name: TankBullet
+    type: 0
   - obj: {fileID: 7062044772206564270, guid: 77aa0f964f16c794dbb2a474f2bfc1d8, type: 3}
     count: 5
-    name: Cannon
+    type: 1
   - obj: {fileID: 5787700744727540826, guid: 4f96e65393a649d4f8fb02a7fccb69a9, type: 3}
     count: 15
-    name: ExplosionOverlap
+    type: 2
 --- !u!4 &1823471599
 Transform:
   m_ObjectHideFlags: 0

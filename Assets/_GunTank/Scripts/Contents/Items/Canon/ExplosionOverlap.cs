@@ -47,7 +47,7 @@ public class ExplosionOverlap : MonoBehaviour
     {
         if (Time.time > time + 1f) 
         {
-            PoolManager.poolDic["ExplosionOverlap"].ReturnPool(gameObject);
+            PoolManager.poolDic[PoolType.FX_Explosion].ReturnPool(gameObject);
             //Destroy(gameObject);
         }
     }

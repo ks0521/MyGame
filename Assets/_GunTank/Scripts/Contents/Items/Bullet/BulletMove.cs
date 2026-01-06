@@ -27,7 +27,7 @@ public class BulletMove : MonoBehaviour
     {
         if (transform.position.y <= 0.1)
         {
-            PoolManager.poolDic["TankBullet"].ReturnPool(gameObject);
+            PoolManager.poolDic[PoolType.Weapon_MG].ReturnPool(gameObject);
             //Destroy(gameObject);
         }
     }
@@ -38,7 +38,7 @@ public class BulletMove : MonoBehaviour
             target.Damaged(Damage);
         }
         Instantiate(Fire, transform.position, transform.rotation);
-        PoolManager.poolDic["TankBullet"].ReturnPool(gameObject);
+        PoolManager.poolDic[PoolType.Weapon_MG].ReturnPool(gameObject);
         //Destroy(gameObject);
     }
 
