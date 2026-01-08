@@ -40,15 +40,23 @@ public class Dragon : Monster
             transform.Rotate(0, 0.8f, 0);
         }
     }
-    public override void Init()
+    public override void ApplySpawnContext(int level)
     {
-        base.Init();
+        base.ApplySpawnContext(level);
         Damage = (int)(LifeManager.Level * 0.5);
+    }
+    public override void StartPattern()
+    {
         StartCoroutine(AttackAction());
     }
     public override void Damaged(int damage)
     {
-        base.Damaged(damage, gameObject);
+        base.Damaged(damage);
+    }
+    public override void Die()
+    {
+        base.Die();
+        PoolManager.poolDic[PoolType.Monster_Dragon].ReturnPool(gameObject);
     }
     IEnumerator AttackAction()
     {

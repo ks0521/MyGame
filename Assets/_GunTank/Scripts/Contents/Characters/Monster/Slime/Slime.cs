@@ -13,22 +13,28 @@ public class Slime : Monster
 
     protected override int DefaultHp => 100;
     protected override int DefaultMaxHp => 100;
+    private void Start()
+    {
+        Body = GetComponent<Rigidbody>();
+    }
     private void FixedUpdate()
     {
         Exclamation.SetActive(Detector.isDetected);
     }
-    public override void Init()
+    public override void ApplySpawnContext(int level)
     {
-        base.Init();
-        Hp = DefaultHp + LifeManager.Level * 7;
-        MaxHp = Hp;
-        Body = GetComponent<Rigidbody>();
-        StartCoroutine(Jumping());
-        attackable = true;
+        base.ApplySpawnContext(level);
+        Damage = (int)(LifeManager.Level * 0.5);
     }
+    public override void StartPattern()
+    {
+        StartCoroutine(Jumping());
+        //무작위 방향으로 뛰어다니다가 플레이어 발견하면 추적하는 패턴 구현
+    }
+
     public override void Damaged(int damage)
     {
-        base.Damaged((int)(damage*0.8),gameObject);
+        base.Damaged((int)(damage*0.8));
     }
     IEnumerator Jumping()
     {
@@ -65,5 +71,10 @@ public class Slime : Monster
             target.Damaged(20 + damage);
             StartCoroutine(AttackDelay(1.5f));
         }
+    }
+    public override void Die()
+    {
+        base.Die();
+        PoolManager.poolDic[PoolType.Monster_Slime].ReturnPool(gameObject);
     }
 }

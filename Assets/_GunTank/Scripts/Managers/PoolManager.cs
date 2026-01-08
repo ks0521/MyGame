@@ -51,6 +51,7 @@ public class ObjectPool
 }
 public class PoolManager : MonoBehaviour
 {
+    public MonsterSpawner spawner;
     public List<PoolData> data;
     public static Dictionary<PoolType, ObjectPool> poolDic;
     private void Awake()
@@ -60,6 +61,8 @@ public class PoolManager : MonoBehaviour
         {
             AddDictionary(data[i]);
         }
+        Debug.Log("풀 생성 완료");
+        spawner.Init(poolDic);
     }
     public void AddDictionary(PoolData data)
     {
